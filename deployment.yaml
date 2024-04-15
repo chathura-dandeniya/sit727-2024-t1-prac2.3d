@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bestshop-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bestshop
+  template:
+    metadata:
+      labels:
+        app: bestshop
+    spec:
+      containers:
+      - name: bestshop
+        image: localhost:32000/bestshop:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

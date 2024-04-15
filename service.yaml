@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bestshop-service
+spec:
+  type: NodePort # Or ClusterIP if you don't need external access
+  ports:
+  - port: 80
+    nodePort: 30080 # Only needed for NodePort; choose a port that's open on your host
+  selector:
+    app: bestshop
